@@ -15,17 +15,21 @@
           "id": "MODAC-001",
           "color": "Lila",
           "talla": "Consultar talla",
-          "foto": "assets/productos/01_polo_lila_virgen_de_guadalupe_talla_por_confirmar.webp",
+          "foto": "assets/productos/01_polo_lila_virgen_de_guadalupe_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/01_polo_lila_virgen_de_guadalupe_talla_por_confirmar.webp",
+          "foto_fondo_gris": "assets/productos/01_polo_lila_virgen_de_guadalupe_talla_por_confirmar_fondo_gris.webp"
         },
         {
           "id": "MODAC-002",
           "color": "Negro",
           "talla": "Consultar talla",
-          "foto": "assets/productos/02_polo_negro_virgen_de_guadalupe_talla_por_confirmar.webp",
+          "foto": "assets/productos/02_polo_negro_virgen_de_guadalupe_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/02_polo_negro_virgen_de_guadalupe_talla_por_confirmar.webp",
+          "foto_fondo_gris": "assets/productos/02_polo_negro_virgen_de_guadalupe_talla_por_confirmar_fondo_gris.webp"
         }
       ]
     },
@@ -39,17 +43,21 @@
           "id": "MODAC-003",
           "color": "Vino",
           "talla": "L",
-          "foto": "assets/productos/03_polo_vino_flor_de_paz_multicolor_talla_l.webp",
+          "foto": "assets/productos/03_polo_vino_flor_de_paz_multicolor_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/03_polo_vino_flor_de_paz_multicolor_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/03_polo_vino_flor_de_paz_multicolor_talla_l_fondo_gris.webp"
         },
         {
           "id": "MODAC-009",
           "color": "Morado",
           "talla": "XL",
-          "foto": "assets/productos/09_polo_morado_flor_de_paz_multicolor_talla_xl.webp",
+          "foto": "assets/productos/09_polo_morado_flor_de_paz_multicolor_talla_xl_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/09_polo_morado_flor_de_paz_multicolor_talla_xl.webp",
+          "foto_fondo_gris": "assets/productos/09_polo_morado_flor_de_paz_multicolor_talla_xl_fondo_gris.webp"
         }
       ]
     },
@@ -63,9 +71,11 @@
           "id": "MODAC-004",
           "color": "Morado",
           "talla": "L",
-          "foto": "assets/productos/04_polo_morado_amapolas_talla_l.webp",
+          "foto": "assets/productos/04_polo_morado_amapolas_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/04_polo_morado_amapolas_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/04_polo_morado_amapolas_talla_l_fondo_gris.webp"
         }
       ]
     },
@@ -79,9 +89,11 @@
           "id": "MODAC-005",
           "color": "Taupe",
           "talla": "XL",
-          "foto": "assets/productos/05_polo_taupe_colibri_floral_talla_xl.webp",
+          "foto": "assets/productos/05_polo_taupe_colibri_floral_talla_xl_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/05_polo_taupe_colibri_floral_talla_xl.webp",
+          "foto_fondo_gris": "assets/productos/05_polo_taupe_colibri_floral_talla_xl_fondo_gris.webp"
         }
       ]
     },
@@ -95,9 +107,11 @@
           "id": "MODAC-006",
           "color": "Gris",
           "talla": "L",
-          "foto": "assets/productos/06_polo_gris_mujer_con_gafas_y_mariposas_talla_l.webp",
+          "foto": "assets/productos/06_polo_gris_mujer_con_gafas_y_mariposas_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/06_polo_gris_mujer_con_gafas_y_mariposas_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/06_polo_gris_mujer_con_gafas_y_mariposas_talla_l_fondo_gris.webp"
         }
       ]
     },
@@ -111,17 +125,21 @@
           "id": "MODAC-007",
           "color": "Rojo",
           "talla": "M",
-          "foto": "assets/productos/07_polo_rojo_margarita_blanca_talla_m.webp",
+          "foto": "assets/productos/07_polo_rojo_margarita_blanca_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/07_polo_rojo_margarita_blanca_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/07_polo_rojo_margarita_blanca_talla_m_fondo_gris.webp"
         },
         {
           "id": "MODAC-011",
           "color": "Rojo",
           "talla": "L",
-          "foto": "assets/productos/11_polo_rojo_margarita_blanca_talla_l.webp",
+          "foto": "assets/productos/11_polo_rojo_margarita_blanca_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/11_polo_rojo_margarita_blanca_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/11_polo_rojo_margarita_blanca_talla_l_fondo_gris.webp"
         }
       ]
     },
@@ -135,17 +153,20 @@
           "id": "MODAC-008",
           "color": "Azul",
           "talla": "L",
-          "foto": "assets/productos/08_polo_azul_snoopy_con_lazo_rosa_talla_l.webp",
+          "foto": "assets/productos/08_polo_azul_snoopy_con_lazo_rosa_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/08_polo_azul_snoopy_con_lazo_rosa_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/08_polo_azul_snoopy_con_lazo_rosa_talla_l_fondo_gris.webp"
         },
         {
           "id": "MODAC-010",
           "color": "Azul marino",
           "talla": "XL",
-          "foto": "assets/productos/10_polo_azul_marino_snoopy_con_lazo_rosa_talla_xl.webp",
+          "foto": "assets/productos/10_polo_azul_marino_snoopy_con_lazo_rosa_talla_xl_fondo_gris.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/10_polo_azul_marino_snoopy_con_lazo_rosa_talla_xl.webp"
         }
       ]
     },
@@ -159,9 +180,11 @@
           "id": "MODAC-012",
           "color": "Taupe",
           "talla": "L",
-          "foto": "assets/productos/12_polo_taupe_tortuga_floral_talla_l.webp",
+          "foto": "assets/productos/12_polo_taupe_tortuga_floral_talla_l_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/12_polo_taupe_tortuga_floral_talla_l.webp",
+          "foto_fondo_gris": "assets/productos/12_polo_taupe_tortuga_floral_talla_l_fondo_gris.webp"
         }
       ]
     },
@@ -175,9 +198,11 @@
           "id": "MODAC-013",
           "color": "Azul marino oscuro",
           "talla": "M",
-          "foto": "assets/productos/13_polo_azul_marino_oscuro_cerezas_en_lineas_rojas_talla_m.webp",
+          "foto": "assets/productos/13_polo_azul_marino_oscuro_cerezas_en_lineas_rojas_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/13_polo_azul_marino_oscuro_cerezas_en_lineas_rojas_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/13_polo_azul_marino_oscuro_cerezas_en_lineas_rojas_talla_m_fondo_gris.webp"
         }
       ]
     },
@@ -191,9 +216,11 @@
           "id": "MODAC-014",
           "color": "Azul",
           "talla": "S",
-          "foto": "assets/productos/14_polo_azul_corazones_en_lineas_claras_talla_s.webp",
+          "foto": "assets/productos/14_polo_azul_corazones_en_lineas_claras_talla_s_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/14_polo_azul_corazones_en_lineas_claras_talla_s.webp",
+          "foto_fondo_gris": "assets/productos/14_polo_azul_corazones_en_lineas_claras_talla_s_fondo_gris.webp"
         }
       ]
     },
@@ -207,9 +234,11 @@
           "id": "MODAC-015",
           "color": "Taupe",
           "talla": "S",
-          "foto": "assets/productos/15_polo_taupe_ramo_de_flores_en_lineas_blancas_talla_s.webp",
+          "foto": "assets/productos/15_polo_taupe_ramo_de_flores_en_lineas_blancas_talla_s_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/15_polo_taupe_ramo_de_flores_en_lineas_blancas_talla_s.webp",
+          "foto_fondo_gris": "assets/productos/15_polo_taupe_ramo_de_flores_en_lineas_blancas_talla_s_fondo_gris.webp"
         }
       ]
     },
@@ -223,9 +252,11 @@
           "id": "MODAC-016",
           "color": "Gris oscuro jaspeado",
           "talla": "S",
-          "foto": "assets/productos/16_polo_gris_oscuro_jaspeado_fresas_en_lineas_blancas_talla_s.webp",
+          "foto": "assets/productos/16_polo_gris_oscuro_jaspeado_fresas_en_lineas_blancas_talla_s_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/16_polo_gris_oscuro_jaspeado_fresas_en_lineas_blancas_talla_s.webp",
+          "foto_fondo_gris": "assets/productos/16_polo_gris_oscuro_jaspeado_fresas_en_lineas_blancas_talla_s_fondo_gris.webp"
         }
       ]
     },
@@ -239,26 +270,31 @@
           "id": "MODAC-017",
           "color": "Blanco",
           "talla": "S",
-          "foto": "assets/productos/17_polo_blanco_cerezas_con_lazo_rosa_talla_s.webp",
+          "foto": "assets/productos/17_polo_blanco_cerezas_con_lazo_rosa_talla_s_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/17_polo_blanco_cerezas_con_lazo_rosa_talla_s.webp",
+          "foto_fondo_gris": "assets/productos/17_polo_blanco_cerezas_con_lazo_rosa_talla_s_fondo_gris.webp"
         },
         {
           "id": "MODAC-019",
           "color": "Morado",
           "talla": "M",
-          "foto": "assets/productos/19_polo_morado_cerezas_con_lazo_rosa_talla_m.webp",
+          "foto": "assets/productos/19_polo_morado_cerezas_con_lazo_rosa_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/19_polo_morado_cerezas_con_lazo_rosa_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/19_polo_morado_cerezas_con_lazo_rosa_talla_m_fondo_gris.webp"
         },
         {
           "id": "MODAC-020",
           "color": "Blanco",
           "talla": "M",
-          "foto": "assets/productos/polo_blanco_cerezas_m_maniqui.webp",
+          "foto": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m_sin_fondo.webp",
           "visible": true,
           "precio": 19.9,
-          "foto_original": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m.webp"
+          "foto_original": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m_fondo_gris.webp"
         }
       ]
     },
@@ -272,9 +308,11 @@
           "id": "MODAC-018",
           "color": "Rojo",
           "talla": "Consultar talla",
-          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar.webp",
+          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar.webp",
+          "foto_fondo_gris": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar_fondo_gris.webp"
         }
       ]
     },
@@ -288,25 +326,31 @@
           "id": "MODAC-021",
           "color": "Rosado",
           "talla": "M",
-          "foto": "assets/productos/21_polo_rosado_ramo_de_flores_a_color_talla_m.webp",
+          "foto": "assets/productos/21_polo_rosado_ramo_de_flores_a_color_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/21_polo_rosado_ramo_de_flores_a_color_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/21_polo_rosado_ramo_de_flores_a_color_talla_m_fondo_gris.webp"
         },
         {
           "id": "MODAC-023",
           "color": "Celeste",
           "talla": "M",
-          "foto": "assets/productos/23_polo_celeste_ramo_de_flores_a_color_talla_m.webp",
+          "foto": "assets/productos/23_polo_celeste_ramo_de_flores_a_color_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/23_polo_celeste_ramo_de_flores_a_color_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/23_polo_celeste_ramo_de_flores_a_color_talla_m_fondo_gris.webp"
         },
         {
           "id": "MODAC-026",
           "color": "Marrón oscuro",
           "talla": "M",
-          "foto": "assets/productos/26_polo_marron_oscuro_ramo_de_flores_a_color_talla_m.webp",
+          "foto": "assets/productos/26_polo_marron_oscuro_ramo_de_flores_a_color_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/26_polo_marron_oscuro_ramo_de_flores_a_color_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/26_polo_marron_oscuro_ramo_de_flores_a_color_talla_m_fondo_gris.webp"
         }
       ]
     },
@@ -320,9 +364,11 @@
           "id": "MODAC-022",
           "color": "Gris claro jaspeado",
           "talla": "M",
-          "foto": "assets/productos/22_polo_gris_claro_jaspeado_ramo_de_flores_en_lineas_rojas_talla_m.webp",
+          "foto": "assets/productos/22_polo_gris_claro_jaspeado_ramo_de_flores_en_lineas_rojas_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/22_polo_gris_claro_jaspeado_ramo_de_flores_en_lineas_rojas_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/22_polo_gris_claro_jaspeado_ramo_de_flores_en_lineas_rojas_talla_m_fondo_gris.webp"
         }
       ]
     },
@@ -336,9 +382,11 @@
           "id": "MODAC-024",
           "color": "Oscuro",
           "talla": "Consultar talla",
-          "foto": "assets/productos/24_polo_oscuro_corazones_a_color_talla_por_confirmar.webp",
+          "foto": "assets/productos/24_polo_oscuro_corazones_a_color_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/24_polo_oscuro_corazones_a_color_talla_por_confirmar.webp",
+          "foto_fondo_gris": "assets/productos/24_polo_oscuro_corazones_a_color_talla_por_confirmar_fondo_gris.webp"
         }
       ]
     },
@@ -352,9 +400,11 @@
           "id": "MODAC-025",
           "color": "Azul marino",
           "talla": "M",
-          "foto": "assets/productos/25_polo_azul_marino_lazo_en_lineas_rojas_talla_m.webp",
+          "foto": "assets/productos/25_polo_azul_marino_lazo_en_lineas_rojas_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/25_polo_azul_marino_lazo_en_lineas_rojas_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/25_polo_azul_marino_lazo_en_lineas_rojas_talla_m_fondo_gris.webp"
         }
       ]
     },
@@ -368,9 +418,11 @@
           "id": "MODAC-027",
           "color": "Beige",
           "talla": "M",
-          "foto": "assets/productos/27_polo_beige_lazo_color_vino_talla_m.webp",
+          "foto": "assets/productos/27_polo_beige_lazo_color_vino_talla_m_sin_fondo.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/27_polo_beige_lazo_color_vino_talla_m.webp",
+          "foto_fondo_gris": "assets/productos/27_polo_beige_lazo_color_vino_talla_m_fondo_gris.webp"
         }
       ]
     }
