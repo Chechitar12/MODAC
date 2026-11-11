@@ -1,0 +1,10 @@
+name = "modac-github-auth"
+main = "worker.mjs"
+compatibility_date = "2026-11-01"
+
+# Complete during one-time setup. Never put secrets in this file.
+[vars]
+ADMIN_URL = ""
+GITHUB_REPO = ""
+# Configure GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET and SESSION_SECRET
+# as Worker secrets, outside the repository.
