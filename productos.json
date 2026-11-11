@@ -255,9 +255,10 @@
           "id": "MODAC-020",
           "color": "Blanco",
           "talla": "M",
-          "foto": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m.webp",
+          "foto": "assets/productos/polo_blanco_cerezas_m_maniqui.webp",
           "visible": true,
-          "precio": 19.9
+          "precio": 19.9,
+          "foto_original": "assets/productos/20_polo_blanco_cerezas_con_lazo_rosa_talla_m.webp"
         }
       ]
     },
