@@ -212,3 +212,63 @@ footer .footer-logo{
 .coverflow-card img[src$="_sin_fondo.webp"],
 .duo-idea img[src$="_sin_fondo.webp"],
 .photo-zoom img[src$="_sin_fondo.webp"]{filter:drop-shadow(0 4px 5px #38251818)}
+
+.personaliza {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 32px auto;
+  width: 90%;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid #f2d9dc;
+  border-radius: 18px;
+  background: #fff5f5;
+  scroll-margin-top: 100px;
+}
+.personaliza h2 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 36px);
+}
+.personaliza p {
+  margin: 0;
+  max-width: 58ch;
+}
+
+.personaliza {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 44px);
+}
+.personaliza-texto .button { margin-top: 20px; }
+.polo-visor { margin: 0; min-width: 0; }
+.polo-vista {
+  width: min(100%, 320px);
+  margin-inline: auto;
+  aspect-ratio: 675 / 887;
+  border-radius: 14px;
+  background: #faead5 url("assets/polo-cerezas-vistas.png") no-repeat 0% center / auto 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.polo-vista:active { cursor: grabbing; }
+.polo-vista[data-angulo="manga"] { background-position-x: 50%; }
+.polo-vista[data-angulo="espalda"] { background-position-x: 100%; }
+.polo-angulos { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 12px 0 8px; }
+.polo-angulos button {
+  padding: 8px 14px;
+  border: 1px solid #d8aab0;
+  border-radius: 999px;
+  color: #691423;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+.polo-angulos [aria-pressed="true"] { color: white; background: #a3142b; border-color: #a3142b; }
+.polo-visor figcaption { text-align: center; font-size: .85rem; color: #615055; }
+@media (max-width: 680px) {
+  .personaliza { grid-template-columns: minmax(0, 1fr); }
+  .personaliza-texto { grid-row: 1; }
+}
