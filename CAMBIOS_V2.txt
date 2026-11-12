@@ -1,0 +1,10 @@
+MODAC V2
+Portada más luminosa y contraste rojo/negro/blanco.
+Carrusel de todas las variantes visibles, cada 5 segundos, con pausa y controles.
+Pausa al pasar el mouse, usar teclado o dejar la pestaña.
+Detalle ampliado al pasar mouse en tarjetas; en celular se abre al tocar.
+Muestra con volumen de maniquí invisible: blanco/cerezas/M. Resto de fotos conservadas.
+Categorías conservadas.
+Tallas y colores anotados siguen pendientes: rojo lazo/cerezas S; virgencita lila XL; negra L; corazones color azul marino oscuro S.
+Sustituye en GitHub index.html, styles.css, app.js, productos.json; agrega carousel.js y la nueva foto de assets/productos.
+El inicio de sesión del panel sigue pendiente de configurar.

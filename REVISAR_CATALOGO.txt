@@ -1,0 +1,11 @@
+VERSIÓN PARA REVISAR
+
+Diseño blanco y rojo, buscador, categorías actuales, carrusel de 27 polos cada 5 segundos, pausa y flechas, detalle ampliado al pasar el mouse y al tocar en celular, tallas visibles y contacto por WhatsApp.
+
+La foto con maniquí invisible se incorporó como muestra en Cerezas con lazo rosa, blanco M. Las otras fotos se conservan.
+
+Para GitHub: sube el CONTENIDO de modac-catalogo en la raíz del repositorio MODAC, conservando la estructura de assets. modac-auth es la configuración aparte del acceso administrador.
+
+La vista completa necesita un servidor web (GitHub Pages); abrir index.html con doble clic puede bloquear la carga de productos.json.
+
+Esta entrega no publica cambios en GitHub.
