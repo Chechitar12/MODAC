@@ -15,10 +15,7 @@ function render(){
     const colorOptions=[...new Map(variants.map(v=>[v.color,v])).values()].map(v=>
       `<button class="color-option" type="button" data-id="${esc(p.id)}" data-variant="${esc(v.id)}" style="--swatch:${colorSwatch(v.color)}" aria-label="Elegir color ${esc(v.color)}" title="${esc(v.color)}"></button>`
     ).join('');
-    const sizeOptions=[...new Map(variants.filter(v=>v.talla!=='Consultar talla').map(v=>[v.talla,v])).values()].map(v=>
-      `<button class="size-option" type="button" data-id="${esc(p.id)}" data-variant="${esc(v.id)}" aria-label="Ver talla ${esc(v.talla)}">${esc(v.talla==='Consultar talla'?'Consultar':v.talla)}</button>`
-    ).join('');
-    return `<article class="card"><button class="card-open" type="button" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><span class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"><span class="card-view">Ver producto</span></span><span class="card-heading"><span class="card-product-name">${esc(p.nombre)}</span><span class="card-price">${money(cover.precio)}</span></span></button><span class="card-options"><span class="color-options" aria-label="Colores disponibles">${colorOptions}</span><span class="size-options" aria-label="Tallas disponibles">${sizeOptions}</span></span></article>`;
+    return `<article class="card"><button class="card-open" type="button" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><span class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"><span class="card-view">Ver producto</span></span><span class="card-heading"><span class="card-product-name">${esc(p.nombre)}</span><span class="card-price">${money(cover.precio)}</span></span></button><span class="card-options"><span class="color-options" aria-label="Colores disponibles">${colorOptions}</span></span></article>`;
   }).join('')||'<p class="empty">No encontramos esa combinación. Prueba otro filtro.</p>';
   $('#products').querySelectorAll('[data-id][data-variant]').forEach(button=>button.onclick=()=>{openProduct(button.dataset.id);selectVariant(button.dataset.variant)});
 }

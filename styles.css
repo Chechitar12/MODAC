@@ -1570,3 +1570,170 @@ footer a:hover{color:#fbbf24}
   .card-heading{padding-inline:9px}
   .personaliza{grid-template-columns:1fr}
 }
+
+/* Restrained wine-red boutique palette */
+:root{
+  --red:#800020;
+  --red-dark:#641327;
+  --gold:#c27803;
+  --ink:#1e293b;
+  --cream:#f9f9fb;
+  --surface:#fff;
+  --surface-alt:#f9f9fb;
+  --line:#e5e7eb;
+  --muted:#647084;
+  --shadow:0 4px 16px rgba(30,41,59,.05);
+}
+body{background:#f9f9fb;color:#1e293b}
+header{background:#fff;border-bottom:1px solid #e5e7eb}
+.brand img{width:88px;height:88px;box-shadow:none}
+.brand span{color:#1e293b}
+nav>a{color:#1e293b}
+nav>a:hover,nav>a:focus-visible{color:#800020;background:#f9f9fb;box-shadow:0 3px 10px rgba(30,41,59,.08)}
+.category-nav{display:none}
+.hero{
+  grid-template-columns:.82fr 1.18fr;
+  gap:clamp(28px,5vw,68px);
+  padding:48px clamp(22px,5vw,68px);
+  border:0;
+  border-radius:0;
+  background:#800020;
+  color:#fff;
+  box-shadow:none;
+}
+.hero-copy h1,.hero-copy h1 em{color:#fff}
+.hero-copy p,.hero-copy .eyebrow{color:#f5e9ec}
+.hero .button{
+  border:1px solid #fff;
+  border-radius:5px;
+  background:#fff;
+  color:#800020;
+  box-shadow:none;
+}
+.hero .button:hover{background:#f7f3f4;box-shadow:none}
+.hero-actions .secondary{
+  border-color:rgba(255,255,255,.62);
+  background:transparent;
+  color:#fff;
+}
+.hero-actions .secondary:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+.hero-images{
+  display:flex;
+  min-height:0;
+  flex-direction:column;
+  padding:0;
+  overflow:visible;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.hero-offer{
+  position:static;
+  display:flex;
+  width:100%;
+  align-items:baseline;
+  justify-content:center;
+  gap:12px;
+  margin:0 0 12px;
+  padding:0 0 10px;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.45);
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#fff;
+}
+.hero-offer span{font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+.hero-offer strong{color:#f4dfb2;font-family:'Playfair Display',Georgia,serif;font-size:23px}
+.coverflow{min-height:290px}
+.coverflow-card,.hero-images .coverflow-card img{border:0;border-radius:0;box-shadow:none}
+.section-heading h2,.duo-ideas h2,.personaliza-texto h2,.how>h2{
+  color:#1e293b;
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;
+}
+.collection{padding:54px 6% 76px;background:transparent}
+.collection .card{
+  border:1px solid #e5e7eb;
+  border-radius:6px;
+  background:#fff;
+  box-shadow:none;
+}
+.collection .card:hover,.collection .card:focus-visible{
+  border-color:#d1d5db;
+  box-shadow:0 7px 18px rgba(30,41,59,.07);
+}
+.collection .card-photo{border:0;border-radius:5px 5px 0 0;background:#fff;box-shadow:none}
+.duo-idea{border:0;border-radius:10px;background:#fdf8f2;box-shadow:none}
+.duo-idea-photos{gap:14px;background:transparent}
+.duo-idea-photos figure,.duo-idea-photos img{margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.duo-idea-info{border:0}
+.duo-price{color:#1e293b}
+.detail-layout .photo-zoom{
+  padding:10px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  background:#fdf8f2;
+  box-shadow:none;
+}
+.detail-layout .photo-zoom img{display:block;border:0;border-radius:4px;box-shadow:none}
+.variants button.active{border-color:#800020;color:#800020}
+.color-swatch{border-color:rgba(30,41,59,.2)}
+.polo-carousel{
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  background:#fdf8f2;
+  box-shadow:none;
+}
+.polo-vista{border:0;border-radius:4px}
+.personaliza-texto .button.whatsapp{
+  border:1px solid #059669;
+  border-radius:6px;
+  background:#059669;
+  color:#fff;
+}
+.personaliza-texto .button.whatsapp:hover{background:#047857}
+.how article{border-color:#e5e7eb;border-radius:8px;box-shadow:none}
+footer{
+  border-top:1px solid #374151;
+  background:#1f2937;
+  color:#fff;
+}
+footer a,footer p,footer small{color:#e5e7eb}
+footer a:hover{color:#fbbf24}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:38px 5%}}
+@media(max-width:600px){
+  .brand img{width:68px;height:68px}
+  .hero{padding:30px 5%}
+  .coverflow{min-height:205px}
+  .collection{padding:36px 5% 58px}
+}
+
+/* Final wine-red storefront polish */
+.hero-copy h1{color:#fff}
+.hero-copy h1 em{color:#ead9b5}
+.hero-offer{margin-bottom:18px}
+.hero-offer strong{font-size:clamp(22px,3vw,30px)}
+.hero-images,.coverflow-card,.hero-images .coverflow-card img{box-shadow:none}
+.card-options{justify-content:flex-start;padding-top:5px}
+.size-options,.size-option{display:none!important}
+.duo-idea-photos figure{overflow:hidden}
+.duo-idea-photos img{border:0;box-shadow:none}
+.duo-idea-info{justify-content:space-between}
+.detail-layout .photo-zoom{box-shadow:none}
+.polo-carousel{padding:18px;border:1px solid #e5e7eb;background:#fdf8f2;box-shadow:none}
+.polo-vista{border:0}
+.polo-carousel-controls{display:none}
+.polo-expand{border-color:#e5e7eb}
+.personaliza{border:1px solid #e5e7eb;background:#fff}
+.personaliza-texto .button.whatsapp{background:#059669;border-color:#059669;color:#fff}
+.personaliza-texto .button.whatsapp:hover{background:#047857}
+.button:not(.secondary):not(.whatsapp){background:#800020;border-color:#800020;color:#fff}
+.button:not(.secondary):not(.whatsapp):hover{background:#641327;border-color:#641327}
+.hero .button:not(.secondary){background:#fff;border-color:#fff;color:#800020}
+.hero .button:not(.secondary):hover{background:#f3eef0;border-color:#f3eef0;color:#641327}
+@media(max-width:600px){
+  .polo-carousel{padding:12px}
+}
