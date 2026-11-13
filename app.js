@@ -2,17 +2,25 @@ const $=s=>document.querySelector(s);let data,category='',current,chosen,bag=[];
 function render(){
   const search=$('#search').value.toLowerCase();
   const selectedSize=$('#size').value;
+  const selectedColor=$('#color').value;
   const list=data.productos.filter(visible).filter(p=>
     (!category||p.categoria===category)&&
     p.nombre.toLowerCase().includes(search)&&
-    (!selectedSize||p.variantes.some(v=>v.visible&&v.talla===selectedSize))
+    p.variantes.some(v=>v.visible&&(!selectedSize||v.talla===selectedSize)&&(!selectedColor||v.color===selectedColor))
   );
   $('#products').innerHTML=list.map(p=>{
     const variants=p.variantes.filter(v=>v.visible);
-    const cover=variants.find(v=>v.talla===selectedSize)||variants[0];
-    return `<button class="card" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><div class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"></div><div class="card-heading"><h3>${esc(p.nombre)}</h3><span class="card-arrow" aria-hidden="true">↗</span></div></button>`;
+    const matches=variants.filter(v=>(!selectedSize||v.talla===selectedSize)&&(!selectedColor||v.color===selectedColor));
+    const cover=matches[0]||variants[0];
+    const colorOptions=[...new Map(variants.map(v=>[v.color,v])).values()].map(v=>
+      `<button class="color-option" type="button" data-id="${esc(p.id)}" data-variant="${esc(v.id)}" style="--swatch:${colorSwatch(v.color)}" aria-label="Elegir color ${esc(v.color)}" title="${esc(v.color)}"></button>`
+    ).join('');
+    const sizeOptions=[...new Map(variants.filter(v=>v.talla!=='Consultar talla').map(v=>[v.talla,v])).values()].map(v=>
+      `<button class="size-option" type="button" data-id="${esc(p.id)}" data-variant="${esc(v.id)}" aria-label="Ver talla ${esc(v.talla)}">${esc(v.talla==='Consultar talla'?'Consultar':v.talla)}</button>`
+    ).join('');
+    return `<article class="card"><button class="card-open" type="button" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><span class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"><span class="card-view">Ver producto</span></span><span class="card-heading"><span class="card-product-name">${esc(p.nombre)}</span><span class="card-price">${money(cover.precio)}</span></span></button><span class="card-options"><span class="color-options" aria-label="Colores disponibles">${colorOptions}</span><span class="size-options" aria-label="Tallas disponibles">${sizeOptions}</span></span></article>`;
   }).join('')||'<p class="empty">No encontramos esa combinación. Prueba otro filtro.</p>';
-  $('#products').querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{openProduct(b.dataset.id);selectVariant(b.dataset.variant)});
+  $('#products').querySelectorAll('[data-id][data-variant]').forEach(button=>button.onclick=()=>{openProduct(button.dataset.id);selectVariant(button.dataset.variant)});
 }
 function colorSwatch(color){
   const name=color.toLocaleLowerCase('es');
@@ -98,8 +106,33 @@ $('#addBag').onclick=()=>{if(bag.some(v=>v.id===chosen.id)){toast('Este polo ya 
     status.textContent = 'Enlace seleccionado. Presiona Ctrl + C o mantén pulsado para copiarlo.';
   }
 };
-$('#search').oninput=render;$('#size').onchange=render;
-fetch('productos.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{data=d;$('#categories').innerHTML=['',...new Set(d.productos.filter(visible).map(p=>p.categoria))].map(c=>`<button data-cat="${esc(c)}" class="${!c?'active':''}">${esc(c||'Todos')}</button>`).join('');$('#categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;$('#categories').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render()});const hero=d.productos.find(p=>p.nombre==='Ramo de flores a color'&&visible(p))||d.productos.find(visible);initCarousel();render();renderDuoIdeas();updateBag();if(location.hash.startsWith('#producto=')){
+$('#search').oninput=render;$('#size').onchange=render;$('#color').onchange=render;
+$('#quoteForm').addEventListener('submit',event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  const status=$('#quoteStatus');
+  const file=form.elements.artwork.files[0];
+  if(!form.reportValidity())return;
+  if(!file){status.textContent='Adjunta tu diseño para continuar.';return}
+  if(file.size>10*1024*1024){status.textContent='El archivo supera el límite de 10 MB.';return}
+  const allowed=/\.(png|jpe?g|webp|pdf)$/i;
+  if(!allowed.test(file.name)){status.textContent='Adjunta una imagen PNG, JPG, WEBP o un PDF.';return}
+  if(!data){status.textContent='Espera a que cargue el catálogo e inténtalo de nuevo.';return}
+  const values=new FormData(form);
+  const message=[
+    '¡Hola, MODAC! Quiero cotizar un estampado personalizado.',
+    `Nombre: ${values.get('name').trim()}`,
+    `WhatsApp: ${values.get('phone').trim()}`,
+    `Talla: ${values.get('size')}`,
+    `Cantidad: ${values.get('quantity')}`,
+    `Diseño: ${values.get('design').trim()}`,
+    `Archivo para adjuntar: ${file.name}`
+  ].join('\n');
+  const url=`https://wa.me/${data.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(message)}`;
+  window.open(url,'_blank','noopener,noreferrer');
+  status.textContent='Se abrió WhatsApp. Adjunta allí el archivo de diseño seleccionado.';
+});
+fetch('productos.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{data=d;$('#categories').innerHTML=['',...new Set(d.productos.filter(visible).map(p=>p.categoria))].map(c=>`<button data-cat="${esc(c)}" class="${!c?'active':''}">${esc(c||'Todos')}</button>`).join('');$('#categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;$('#categories').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render()});const variants=d.productos.filter(visible).flatMap(p=>p.variantes.filter(v=>v.visible));const sizes=[...new Set(variants.map(v=>v.talla).filter(size=>size!=='Consultar talla'))].sort((a,b)=>['XS','S','M','L','XL','XXL'].indexOf(a)-['XS','S','M','L','XL','XXL'].indexOf(b));$('#size').insertAdjacentHTML('beforeend',sizes.map(size=>`<option value="${esc(size)}">${esc(size)}</option>`).join(''));const colors=[...new Set(variants.map(v=>v.color))].sort((a,b)=>a.localeCompare(b,'es'));$('#color').insertAdjacentHTML('beforeend',colors.map(color=>`<option value="${esc(color)}">${esc(color)}</option>`).join(''));initCarousel();render();renderDuoIdeas();updateBag();if(location.hash.startsWith('#producto=')){
   const variantId = new URLSearchParams(location.search).get('variante');
   openProduct(decodeURIComponent(location.hash.slice(10)));
   if(current?.variantes.some(v=>v.visible&&v.id===variantId))selectVariant(variantId);
