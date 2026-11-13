@@ -1,4 +1,24 @@
 const $=s=>document.querySelector(s);let data,category='',current,chosen,bag=[];const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const money=n=>'S/ '+Number(n).toFixed(2);const visible=p=>p.visible&&p.variantes.some(v=>v.visible);const photo=p=>{const path=String(p||'').replace(/^\/+/, '');if(!path.startsWith('assets/productos/')||path.split('/').includes('..'))return '';return path};function toast(t){$('#toast').textContent=t;$('#toast').style.display='block';setTimeout(()=>$('#toast').style.display='none',2600)}function wa(t){return 'https://wa.me/'+data.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent(t)}
+function productInquiry(product,variant){
+  return [
+    '¡Hola, MODAC! Quiero consultar por este polo.',
+    `Diseño: ${product.nombre}`,
+    `Color: ${variant.color}`,
+    `Talla: ${variant.talla}`,
+    `Precio referencial: ${money(variant.precio)}`,
+    `Código: ${variant.id}`,
+    '¿Me confirman disponibilidad y opciones de entrega?'
+  ].join('\n');
+}
+function selectionInquiry(){
+  const total=Math.floor(bag.length/2)*data.precio_duo+(bag.length%2?bag[bag.length-1].precio:0);
+  return [
+    '¡Hola, MODAC! Quiero consultar por mi selección:',
+    ...bag.map((item,index)=>`${index+1}. ${item.nombre} · ${item.color} · talla ${item.talla} · ${money(item.precio)} · Código ${item.id}`),
+    `Total referencial: ${money(total)}${bag.length>=2?` (incluye ${Math.floor(bag.length/2)} dúo(s) de 2X ${money(data.precio_duo)})`:''}`,
+    '¿Me confirman disponibilidad y opciones de entrega?'
+  ].join('\n');
+}
 function render(){
   const search=$('#search').value.toLowerCase();
   const selectedSize=$('#size').value;
@@ -30,7 +50,7 @@ function colorSwatch(color){
   return palette.find(([pattern])=>pattern.test(name))?.[1]||'#b9b4ae';
 }
 function openProduct(id){current=data.productos.find(p=>p.id===id&&visible(p));if(!current)return;$('#detailName').textContent=current.nombre;$('#detailCategory').textContent=current.categoria;$('#variants').innerHTML=current.variantes.filter(v=>v.visible).map(v=>`<button data-v="${esc(v.id)}"><span class="variant-choice"><i class="color-swatch" style="--swatch:${colorSwatch(v.color)}" aria-hidden="true"></i><span>${esc(v.color)} - ${esc(v.talla==='Consultar talla'?'Por confirmar':v.talla)}</span></span></button>`).join('');$('#variants').querySelectorAll('button').forEach(b=>b.onclick=()=>selectVariant(b.dataset.v));selectVariant(current.variantes.find(v=>v.visible).id);$('#shareStatus').textContent='';$('#shareLink').hidden=true;if(!$('#detail').open)$('#detail').showModal();history.replaceState(null,'','#producto='+encodeURIComponent(id));}
-function selectVariant(id){chosen=current.variantes.find(v=>v.id===id&&v.visible);$('#detailPhoto').src=photo(chosen.foto);$('#detailPhoto').alt=`${current.nombre} · ${chosen.color} · ${chosen.talla}`;$('#detailPrice').textContent='S/'+Number(chosen.precio).toFixed(2)+' · 2X S/'+Number(data.precio_duo).toFixed(2);$('#variantCode').innerHTML=`<span class="variant-choice"><i class="color-swatch" style="--swatch:${colorSwatch(chosen.color)}" aria-hidden="true"></i><span>${esc(chosen.color)} - ${esc(chosen.talla==='Consultar talla'?'Por confirmar':chosen.talla)}</span></span>`;$('#variants').querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b.dataset.v===id);b.setAttribute('aria-pressed',b.dataset.v===id)});$('#whatsapp').href=wa(promotionInquiry);$('#shareLink').hidden=true;$('#shareStatus').textContent=''}
+function selectVariant(id){chosen=current.variantes.find(v=>v.id===id&&v.visible);$('#detailPhoto').src=photo(chosen.foto);$('#detailPhoto').alt=`${current.nombre} · ${chosen.color} · ${chosen.talla}`;$('#detailPrice').textContent='S/'+Number(chosen.precio).toFixed(2)+' · 2X S/'+Number(data.precio_duo).toFixed(2);$('#variantCode').innerHTML=`<span class="variant-choice"><i class="color-swatch" style="--swatch:${colorSwatch(chosen.color)}" aria-hidden="true"></i><span>${esc(chosen.color)} - ${esc(chosen.talla==='Consultar talla'?'Por confirmar':chosen.talla)}</span></span>`;$('#variants').querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b.dataset.v===id);b.setAttribute('aria-pressed',b.dataset.v===id)});$('#whatsapp').href=wa(productInquiry(current,chosen));$('#shareLink').hidden=true;$('#shareStatus').textContent=''}
 
 const promotionInquiry = '¡Hola! ¿Me puede dar más detalles sobre la promoción de polos 2X S/35.00?';
 
@@ -66,7 +86,7 @@ function renderDuoIdeas() {
   $('#duos').hidden = container.childElementCount === 0;
 }
 
-function updateBag(){ $('#bagCount').textContent=bag.length;$('#bagItems').innerHTML=bag.map(v=>`<div class="bag-item"><img src="${esc(photo(v.foto))}" alt="${esc(v.nombre)}"><div><strong>${esc(v.nombre)}</strong><br>${esc(v.color)} · ${esc(v.talla)}<br>${esc(v.id)}</div><button data-remove="${esc(v.id)}" aria-label="Quitar ${esc(v.nombre)}">Quitar</button></div>`).join('')||'<p>Aún no elegiste un polo. Encuentra tus favoritos en la colección.</p>';$('#bagItems').querySelectorAll('button').forEach(b=>b.onclick=()=>{bag=bag.filter(v=>v.id!==b.dataset.remove);updateBag()});const total=Math.floor(bag.length/2)*data.precio_duo+(bag.length%2?bag[bag.length-1].precio:0);$('#bagTotal').textContent=bag.length?'Total referencial: '+money(total):'';$('#bagWhatsapp').hidden=!bag.length;$('#bagWhatsapp').style.display=bag.length?'':'none';$('#bagWhatsapp').href=wa(promotionInquiry);
+function updateBag(){ $('#bagCount').textContent=bag.length;$('#bagItems').innerHTML=bag.map(v=>`<div class="bag-item"><img src="${esc(photo(v.foto))}" alt="${esc(v.nombre)}"><div><strong>${esc(v.nombre)}</strong><br>${esc(v.color)} · ${esc(v.talla)}<br>${esc(v.id)}</div><button data-remove="${esc(v.id)}" aria-label="Quitar ${esc(v.nombre)}">Quitar</button></div>`).join('')||'<p>Aún no elegiste un polo. Encuentra tus favoritos en la colección.</p>';$('#bagItems').querySelectorAll('button').forEach(b=>b.onclick=()=>{bag=bag.filter(v=>v.id!==b.dataset.remove);updateBag()});const total=Math.floor(bag.length/2)*data.precio_duo+(bag.length%2?bag[bag.length-1].precio:0);$('#bagTotal').textContent=bag.length?'Total referencial: '+money(total):'';$('#bagWhatsapp').hidden=!bag.length;$('#bagWhatsapp').style.display=bag.length?'':'none';$('#bagWhatsapp').href=bag.length?wa(selectionInquiry()):'#';
   const needsOneMore = bag.length % 2 === 1;
   $('#duoNotice').hidden = bag.length === 0;
   $('#duoMessage').textContent = bag.length === 2
