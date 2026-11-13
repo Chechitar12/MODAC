@@ -776,3 +776,81 @@ footer a:hover{color:#e1c47f}
 @media(max-width:760px){
   .hero{border-radius:0}
 }
+
+/* Boutique collection refinements */
+.collection .card{
+  overflow:hidden;
+  border:1px solid #efede8;
+  border-radius:6px;
+  background:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,.04);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.collection .card:hover,.collection .card:focus-visible{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+  box-shadow:0 10px 24px rgba(0,0,0,.09);
+}
+.collection .card-photo{
+  position:relative;
+  border:0;
+  border-radius:5px 5px 0 0;
+  box-shadow:none;
+}
+.size-badges{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  max-width:calc(100% - 20px);
+}
+.size-badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:23px;
+  padding:4px 9px;
+  border:1px solid rgba(198,161,91,.65);
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  color:#443321;
+  font-size:10px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.03em;
+}
+.card-heading{padding:0 13px 12px}
+.card-heading h3{font-size:13px;line-height:1.5}
+.card-arrow{margin-right:12px}
+.section-heading h2,.duo-ideas h2,.duo-banner h2,.personaliza-texto h2,.how>h2{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:500;
+  letter-spacing:-.02em;
+}
+.section-heading h2{font-size:clamp(30px,4vw,40px)}
+.duo-ideas h2,.personaliza-texto h2,.how>h2{font-size:clamp(28px,3.5vw,36px)}
+.button{
+  border-radius:4px;
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+}
+.button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(33,27,27,.16);
+}
+.duo-idea .button{border-radius:4px}
+.collection{padding-top:56px;padding-bottom:82px}
+.duo-ideas,.personaliza,.how{margin-top:42px}
+.hero{padding-top:70px;padding-bottom:78px}
+@media(max-width:760px){
+  .collection{padding:36px 5% 58px}
+  .grid{gap:20px 12px}
+  .collection .card{border-radius:5px}
+  .card-heading{padding:0 9px 10px}
+  .card-heading h3{font-size:12px}
+  .size-badges{top:7px;left:7px;gap:4px}
+  .size-badge{min-height:21px;padding:4px 7px;font-size:9px}
+  .hero{padding-top:42px;padding-bottom:48px}
+  .duo-ideas,.personaliza,.how{margin-top:30px}
+}
