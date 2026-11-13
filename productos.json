@@ -307,8 +307,8 @@
         {
           "id": "MODAC-018",
           "color": "Rojo",
-          "talla": "Consultar talla",
-          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar_sin_fondo.webp",
+          "talla": "M",
+          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_m.svg",
           "visible": true,
           "precio": 19.9,
           "foto_original": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar.webp",

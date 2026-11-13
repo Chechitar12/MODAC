@@ -662,3 +662,117 @@ header>.search:focus-within{border-color:#c81018;box-shadow:0 0 0 3px rgba(200,1
 @media(max-width:600px){
   .hero{box-shadow:0 12px 26px rgba(126,17,45,.16)}
 }
+
+:root{
+  --red:#a61932;
+  --red-dark:#720d24;
+  --gold:#c6a15b;
+  --ink:#211b1b;
+  --cream:#fff;
+  --surface:#fff;
+  --surface-alt:#f7f6f3;
+  --line:#e9e3d8;
+  --muted:#6d6661;
+  --shadow:0 14px 32px rgba(33,27,27,.08);
+}
+body{background:#fff;color:var(--ink)}
+header{background:#fff;border-bottom:1px solid var(--gold)}
+.brand img{box-shadow:none}
+.brand span{color:var(--red-dark)}
+.announcement{background:var(--red-dark);border-top:3px solid var(--gold)}
+.bag{border-radius:4px;box-shadow:none}
+.bag span{background:var(--red-dark)}
+.hero{
+  background:linear-gradient(120deg,#710d25 0%,#a61932 68%,#801027 100%);
+  border:1px solid rgba(198,161,91,.7);
+  border-radius:4px;
+  color:#fff;
+}
+.hero h1,.hero h2{color:#fff}
+.hero h1 em{color:#e1c47f}
+.hero p,.hero-note{color:#f5e9e7}
+.hero .button{
+  background:linear-gradient(135deg,#d7b76e,#bd974a);
+  border:1px solid #f1dfae;
+  color:#301e13;
+  box-shadow:0 8px 20px rgba(31,13,16,.22);
+}
+.hero-offer{
+  border:1px solid #e1c47f;
+  border-radius:3px;
+  background:linear-gradient(135deg,#d7b76e,#bd974a);
+  color:#301e13;
+}
+.hero-offer strong{color:#301e13}
+.category-nav{background:#fff;border-bottom:1px solid var(--gold)}
+.chips button{border-color:transparent;border-radius:4px}
+.chips button.active{
+  background:var(--red-dark);
+  border-color:var(--gold);
+  box-shadow:none;
+}
+.chips button:hover{border-color:var(--gold);color:var(--red-dark)}
+.search,select,.bag{border-color:var(--line)}
+.collection{background:#fff}
+.section-heading h2{color:var(--red-dark)}
+.section-heading h2::after{
+  content:"";
+  display:block;
+  width:48px;
+  margin-top:10px;
+  border-bottom:2px solid var(--gold);
+}
+.collection .card-photo{
+  border:1px solid #efede8;
+  border-radius:4px;
+  background:#f7f6f3;
+  box-shadow:none;
+}
+.collection .card:hover .card-photo,
+.collection .card:focus-visible .card-photo{
+  border-color:var(--gold);
+  box-shadow:0 10px 24px rgba(114,13,36,.1);
+}
+.collection .card-arrow,.collection .card-price{color:var(--red-dark)}
+.size-filter{background:var(--red-dark);border:1px solid var(--gold)}
+.duo-idea{
+  border-color:var(--line);
+  border-radius:4px;
+  box-shadow:0 10px 24px rgba(33,27,27,.05);
+}
+.duo-idea-info{border-top:1px solid var(--gold)}
+.personaliza{
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#faf9f7;
+}
+.duo-banner{
+  border:1px solid var(--gold);
+  border-radius:4px;
+  background:linear-gradient(120deg,#710d25,#a61932 68%,#801027);
+  color:#fff;
+}
+.duo-banner h2,.duo-banner h2 em{color:#fff}
+.duo-banner .eyebrow{color:#e1c47f}
+.duo-banner p{color:#f5e9e7}
+.duo-banner .light{
+  background:#fff;
+  border:1px solid var(--gold);
+  color:var(--red-dark);
+}
+.how article{
+  border-color:var(--line);
+  border-radius:4px;
+  box-shadow:0 8px 22px rgba(33,27,27,.045);
+}
+.how b{color:var(--gold)}
+footer{
+  border-top:3px solid var(--gold);
+  background:var(--red-dark);
+  color:#fff;
+}
+footer p,footer small{color:#eee4e1}
+footer a:hover{color:#e1c47f}
+@media(max-width:760px){
+  .hero{border-radius:0}
+}
