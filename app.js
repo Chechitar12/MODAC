@@ -10,7 +10,7 @@ function render(){
   $('#products').innerHTML=list.map(p=>{
     const variants=p.variantes.filter(v=>v.visible);
     const cover=variants.find(v=>v.talla===selectedSize)||variants[0];
-    return `<button class="card" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><div class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"><span class="hover-detail"><span><b>Color:</b> ${esc(cover.color)}</span><span><b>Talla:</b> ${esc(cover.talla==='Consultar talla'?'Por confirmar':cover.talla)}</span></span></div><div class="card-heading"><h3>${esc(p.nombre)}</h3><span class="card-arrow" aria-hidden="true">↗</span></div></button>`;
+    return `<button class="card" data-id="${esc(p.id)}" data-variant="${esc(cover.id)}"><div class="card-photo"><img src="${esc(photo(cover.foto))}" alt="Polo ${esc(p.nombre)} en ${esc(cover.color)}" loading="lazy" width="600" height="600"></div><div class="card-heading"><h3>${esc(p.nombre)}</h3><span class="card-arrow" aria-hidden="true">↗</span></div></button>`;
   }).join('')||'<p class="empty">No encontramos esa combinación. Prueba otro filtro.</p>';
   $('#products').querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{openProduct(b.dataset.id);selectVariant(b.dataset.variant)});
 }
