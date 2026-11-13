@@ -14,7 +14,7 @@
         {
           "id": "MODAC-001",
           "color": "Lila",
-          "talla": "Consultar talla",
+          "talla": "XL",
           "foto": "assets/productos/01_polo_lila_virgen_de_guadalupe_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
           "precio": 19.9,
@@ -24,7 +24,7 @@
         {
           "id": "MODAC-002",
           "color": "Negro",
-          "talla": "Consultar talla",
+          "talla": "XL",
           "foto": "assets/productos/02_polo_negro_virgen_de_guadalupe_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
           "precio": 19.9,
@@ -308,7 +308,7 @@
           "id": "MODAC-018",
           "color": "Rojo",
           "talla": "M",
-          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_m.svg",
+          "foto": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar_sin_fondo.webp",
           "visible": true,
           "precio": 19.9,
           "foto_original": "assets/productos/18_polo_rojo_lazo_en_lineas_blancas_talla_por_confirmar.webp",
