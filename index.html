@@ -7,8 +7,8 @@
       name="description"
       content="Polos de dama en tendencia y estampados personalizados. Descubre MODAC y cotiza tu diseño por WhatsApp." /><title
       >MODAC · Polos de dama y estampados personalizados</title
-    ><link rel="stylesheet" href="styles.css?v=20261114-formato" /><script
-      src="app.js?v=20261114-tarjetas"
+    ><link rel="stylesheet" href="styles.css?v=20261114-carrusel-crema" /><script
+      src="app.js?v=ajuste-20261114-tarjetas"
       defer
     ></script
     ><script src="carousel.js?v=20261114-portada" defer></script
@@ -19,13 +19,12 @@
   ><body>
     <header
       ><a class="brand" href="./" aria-label="Modac, inicio"
-        ><img src="assets/marca/logo.png" alt="MODAC · Elige tu estilo" /><span
-          >MODAC<small>ELIGE TU ESTILO</small></span
+        ><img src="assets/marca/logo.png" alt="MODAC · Elige tu estilo" />
         ></a
       ><nav aria-label="Navegación principal"
         ><a href="./"><span>Inicio</span></a
-        ><a href="#coleccion"><span>Catálogo de polos</span></a
-        ><a href="#personaliza"><span>Personalizados</span></a
+        ><a href="#coleccion"><span>Catálogo</span></a
+        ><a href="#personaliza"><span>Personaliza</span></a
         ><a href="#contacto"><span>Contacto</span></a
         ><button class="bag" id="openBag"
           >Mi selección <span id="bagCount">0</span></button
@@ -49,39 +48,19 @@
           aria-roledescription="carrusel"
           aria-label="Polos de la colección"
           ><div class="coverflow" id="coverflow"></div>
-          <button class="hero-carousel-arrow" type="button" data-carousel-step="-1" aria-label="Polo anterior" hidden>‹</button>
-          <button class="hero-carousel-arrow" type="button" data-carousel-step="1" aria-label="Polo siguiente" hidden>›</button></div
+          <div class="hero-carousel-controls"><button class="hero-carousel-arrow" type="button" data-carousel-step="-1" aria-label="Polo anterior" hidden>‹</button>
+          <button class="hero-carousel-arrow" type="button" data-carousel-step="1" aria-label="Polo siguiente" hidden>›</button></div></div
       ></section>
       <aside class="modac-promotion" aria-label="Promoción MODAC"><h2>Dúos con estilo</h2><strong>2X S/35.00</strong><span class="modac-promotion-polos" aria-hidden="true"><img src="assets/polo-cerezas-frente.webp" alt="" /><img src="assets/productos/27_polo_beige_lazo_color_vino_talla_m_sin_fondo.webp" alt="" /></span></aside>
-      <section class="duo-ideas" id="duos" aria-labelledby="duosTitle" hidden>
-        <h2 id="duosTitle">Dúos con estilo</h2>
-        <div id="duoIdeas" class="duo-ideas-grid"></div>
-      </section>
       <section class="collection" id="coleccion"
-        ><div class="section-heading"
-          ><div
-            ><p class="eyebrow">BÁSICOS Y TENDENCIA</p
-            ><h2>Polos de dama</h2></div
-          ><div class="toolbar"
-            ><label class="search"
-        >⌕
-        <input
-          id="search"
-          type="search"
-          placeholder="Buscar polos…"
-          aria-label="Buscar polos" /></label
-            ><label class="catalog-filter"
-              ><span>Talla</span
-              ><select id="size" aria-label="Filtrar polos por talla"
-                ><option value="">Todas</option></select
-              ></label
-            ><label class="catalog-filter"
-              ><span>Color</span
-              ><select id="color" aria-label="Filtrar polos por color"
-                ><option value="">Todos</option></select
-              ></label
-            ></div
-          ></div
+        ><div class="section-heading">
+          <h2>Polos de dama</h2>
+          <label class="catalog-size">
+            <select id="size" aria-label="Filtrar polos por talla">
+              <option value="">Todas las tallas</option>
+            </select>
+          </label>
+          </div
         ><div class="grid" id="products" aria-live="polite"></div
       ></section>
       <section
@@ -108,7 +87,7 @@
               id="openPoloZoom"
               type="button"
               aria-label="Ampliar vistas del polo"
-              >Ampliar <span aria-hidden="true">↗</span></button
+              ><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6m-3-3v6"/></svg></button
             >
           </div>
           <figcaption

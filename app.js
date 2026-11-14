@@ -59,20 +59,16 @@ function selectionInquiry() {
   ].join("\n");
 }
 function render() {
-  const search = $("#search").value.toLowerCase();
   const selectedSize = $("#size").value;
-  const selectedColor = $("#color").value;
   const list = data.productos
     .filter(visible)
     .filter(
       (p) =>
         (!category || p.categoria === category) &&
-        p.nombre.toLowerCase().includes(search) &&
         p.variantes.some(
           (v) =>
             v.visible &&
-            (!selectedSize || v.talla === selectedSize) &&
-            (!selectedColor || v.color === selectedColor),
+            (!selectedSize || v.talla === selectedSize),
         ),
     );
   $("#products").innerHTML =
@@ -81,8 +77,7 @@ function render() {
         const variants = p.variantes.filter((v) => v.visible);
         const matches = variants.filter(
           (v) =>
-            (!selectedSize || v.talla === selectedSize) &&
-            (!selectedColor || v.color === selectedColor),
+            (!selectedSize || v.talla === selectedSize),
         );
         const cover = matches[0] || variants[0];
         const colorOptions = [
@@ -186,48 +181,6 @@ function selectVariant(id) {
 
 const promotionInquiry =
   "¡Hola! ¿Me puede dar más detalles sobre la promoción de polos 2X S/35.00?";
-
-function renderDuoIdeas() {
-  const combinations = [
-    { name: "Flores y lazos", ids: ["MODAC-023", "MODAC-027"] },
-    { name: "Contraste de colores", ids: ["MODAC-007", "MODAC-025"] },
-  ];
-  const variants = data.productos.filter(visible).flatMap((product) =>
-    product.variantes
-      .filter((variant) => variant.visible)
-      .map((variant) => ({
-        ...variant,
-        nombre: product.nombre,
-      })),
-  );
-  const container = $("#duoIdeas");
-  for (const combination of combinations) {
-    const pair = combination.ids.map((id) =>
-      variants.find((variant) => variant.id === id),
-    );
-    if (pair.some((variant) => !variant)) continue;
-
-    const article = document.createElement("article");
-    article.className = "duo-idea";
-    article.innerHTML = `<div class="duo-idea-photos">${pair
-      .map(
-        (variant) =>
-          `<figure><img src="${esc(photo(variant.foto))}" alt="${esc(variant.nombre)}" loading="lazy" width="600" height="600"></figure>`,
-      )
-      .join(
-        "",
-      )}</div><div class="duo-idea-info"><strong class="duo-price">2X S/${Number(data.precio_duo).toFixed(2)}</strong><button class="button" type="button">Añadir dúo</button></div>`;
-    article.querySelector("button").onclick = () => {
-      for (const variant of pair) {
-        if (!bag.some((item) => item.id === variant.id)) bag.push(variant);
-      }
-      updateBag();
-      $("#selection").showModal();
-    };
-    container.append(article);
-  }
-  $("#duos").hidden = container.childElementCount === 0;
-}
 
 function updateBag() {
   $("#bagCount").textContent = bag.length;
@@ -342,9 +295,7 @@ $("#share").onclick = async () => {
       "Enlace seleccionado. Presiona Ctrl + C o mantén pulsado para copiarlo.";
   }
 };
-$("#search").oninput = render;
 $("#size").onchange = render;
-$("#color").onchange = render;
 $("#quoteForm").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -432,18 +383,8 @@ fetch("productos.json", { cache: "no-cache" })
         .map((size) => `<option value="${esc(size)}">${esc(size)}</option>`)
         .join(""),
     );
-    const colors = [...new Set(variants.map((v) => v.color))].sort((a, b) =>
-      a.localeCompare(b, "es"),
-    );
-    $("#color").insertAdjacentHTML(
-      "beforeend",
-      colors
-        .map((color) => `<option value="${esc(color)}">${esc(color)}</option>`)
-        .join(""),
-    );
     initCarousel();
     render();
-    renderDuoIdeas();
     updateBag();
     if (location.hash.startsWith("#producto=")) {
       const variantId = new URLSearchParams(location.search).get("variante");
