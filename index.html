@@ -1,40 +1,333 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Polos de dama en tendencia y estampados personalizados. Descubre MODAC y cotiza tu diseño por WhatsApp."><title>MODAC · Polos de dama y estampados personalizados</title><link rel="stylesheet" href="styles.css?v=20261113-modelo-logo"><script src="app.js?v=20261113-vino-final" defer></script><script src="carousel.js?v=20261111" defer></script><script src="visor-polo.js?v=20261112-polo-carousel-final" defer></script></head><body>
-<header><a class="brand" href="./" aria-label="Modac, inicio"><img src="assets/marca/logo.png" alt="MODAC · Elige tu estilo"><span>MODAC<small>ELIGE TU ESTILO</small></span></a><label class="search">⌕ <input id="search" type="search" placeholder="Buscar polos…" aria-label="Buscar polos"></label><nav aria-label="Navegación principal"><a href="./"><span>Inicio</span></a><a href="#coleccion"><span>Catálogo de polos</span></a><a href="#personaliza"><span>Personalizados</span></a><a href="#personaliza"><span>Contacto</span></a><button class="bag" id="openBag">Mi selección <span id="bagCount">0</span></button></nav></header>
-<div class="category-nav"><div id="categories" class="chips"></div></div><main><section class="hero"><div class="hero-copy"><p class="eyebrow">MODAC · POLOS PARA EXPRESARTE</p><h1>Elige tu <em>estilo.</em></h1><p>Polos de dama para todos los días y estampados personalizados hechos para ti.</p><div class="hero-actions"><a class="button" href="#coleccion">Ver polos de dama</a><a class="button secondary" href="#personaliza">Personaliza tu estampado</a></div></div><div class="hero-images" role="region" aria-roledescription="carrusel" aria-label="Polos de la colección"><div class="hero-offer"><span>Promoción MODAC</span><strong>2X S/35.00</strong></div><div class="coverflow" id="coverflow"></div></div></section>
-<section class="duo-ideas" id="duos" aria-labelledby="duosTitle" hidden>
-<h2 id="duosTitle">Dúos con estilo</h2>
-<div id="duoIdeas" class="duo-ideas-grid"></div>
-</section>
-<section class="collection" id="coleccion"><div class="section-heading"><div><p class="eyebrow">BÁSICOS Y TENDENCIA</p><h2>Polos de dama</h2></div><div class="toolbar"><label class="catalog-filter"><span>Talla</span><select id="size" aria-label="Filtrar polos por talla"><option value="">Todas</option></select></label><label class="catalog-filter"><span>Color</span><select id="color" aria-label="Filtrar polos por color"><option value="">Todos</option></select></label></div></div><div class="grid" id="products" aria-live="polite"></div></section>
-<section id="personaliza" class="personaliza" aria-labelledby="personalizaTitle">
-  <figure class="polo-visor">
-    <div class="polo-carousel" id="poloCarousel" role="region" aria-label="Vistas del polo personalizable">
-      <div class="polo-vista" data-polo-view role="img" tabindex="0" aria-label="Vista frontal del polo MODAC"></div>
-      <button class="polo-expand" id="openPoloZoom" type="button" aria-label="Ampliar vistas del polo">Ampliar <span aria-hidden="true">↗</span></button>
-    </div>
-    <figcaption>Desliza o arrastra para girar el polo. Selecciona «Ampliar» para verlo en detalle.</figcaption>
-  </figure>
-  <div class="personaliza-texto">
-    <p class="eyebrow">HECHO PARA TI</p>
-    <h2 id="personalizaTitle">Personaliza tu estampado</h2>
-    <p>Cuéntanos qué diseño imaginas. Completa los datos y comparte tu referencia para cotizar tu polo personalizado.</p>
-    <form id="quoteForm" class="quote-form" novalidate>
-      <label>Tu nombre<input name="name" autocomplete="name" required maxlength="80" placeholder="Nombre"></label>
-      <label>WhatsApp<input name="phone" type="tel" autocomplete="tel" required inputmode="tel" pattern="[+0-9 ()-]{7,20}" placeholder="+51 999 999 999"></label>
-      <div class="quote-row">
-        <label>Talla<select name="size" required><option value="">Selecciona talla</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
-        <label>Cantidad<input name="quantity" type="number" min="1" max="100" step="1" required value="1"></label>
-      </div>
-      <label>Cuéntanos tu idea<textarea name="design" rows="3" maxlength="500" required placeholder="Describe el diseño, frase o logo que quieres estampar"></textarea></label>
-      <label>Adjunta tu diseño<input name="artwork" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,image/png,image/jpeg,image/webp,application/pdf" required></label>
-      <small>Al continuar se abrirá WhatsApp para enviar tu solicitud. Adjunta allí el archivo seleccionado (máximo 10 MB).</small>
-      <button class="button whatsapp" type="submit">Cotizar estampado por WhatsApp</button>
-      <p class="form-status" id="quoteStatus" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-<section id="como" class="how"><h2>Cómo pedir tu polo</h2><div><article><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6"/></svg></span><b>01</b><h3>Encuentra tu diseño</h3><p>Explora la colección y abre tu favorito.</p></article><article><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-2 7H7L4 5ZM7 12l-1 4h12M8 20h.01M17 20h.01M4 5 3 3H1"/></svg></span><b>02</b><h3>Elige tu variante</h3><p>Revisa el color y la talla de cada polo.</p></article><article><span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.5a8.5 8.5 0 1 1 16.3-4Z"/><path d="M8.2 8.5c.6 3.1 2.2 4.8 5.4 6.2l1.6-1.6 2.2 1"/></svg></span><b>03</b><h3>Hablemos por WhatsApp</h3><p>Consulta disponibilidad y coordina tu pedido.</p></article></div></section></main><footer><div class="footer-brand"><img class="footer-logo" src="assets/marca/logo.png" width="112" height="112" alt="MODAC · Elige tu estilo" loading="lazy"></div><div class="footer-links"><strong>Explora</strong><a href="#coleccion">Ver colección</a><a href="#personaliza">Personaliza tu polo</a><a href="#como">Cómo pedir</a></div><div class="footer-contact"><strong>Pedidos y consultas</strong><a href="https://wa.me/51972017611?text=%C2%A1Hola%21%20%C2%BFMe%20puede%20dar%20m%C3%A1s%20detalles%20sobre%20la%20promoci%C3%B3n%20de%20polos%202X%20S/35.00%3F" target="_blank" rel="noopener">WhatsApp · 972 017 611</a><a href="#coleccion">Ver promociones y dúos</a></div></footer>
-<dialog id="poloZoom" class="polo-zoom"><button class="close" id="closePoloZoom" aria-label="Cerrar ampliación">×</button><div class="polo-vista polo-vista-expanded" data-polo-view role="img" tabindex="0" aria-label="Vista ampliada del polo MODAC"></div><p>Arrastra para recorrer las vistas del polo.</p></dialog>
-<dialog id="detail"><button class="close" aria-label="Cerrar" id="closeDetail">×</button><div class="detail-layout"><button class="photo-zoom" id="zoomPhoto" aria-label="Ampliar foto"><img id="detailPhoto" alt=""></button><div class="detail-info"><span class="eyebrow" id="detailCategory"></span><h2 id="detailName"></h2><p class="price" id="detailPrice"></p><p class="muted">Algodón jersey 30/1 · Cuello redondo · Manga corta</p><h3>Elige color y talla</h3><div class="variants" id="variants"></div><p id="variantCode" class="muted"></p><a id="whatsapp" class="button whatsapp" target="_blank" rel="noopener">Consultar por WhatsApp</a><button class="button secondary" id="addBag">Añadir a mi selección ♡</button><button class="text-button" id="share">Compartir este diseño</button><input id="shareLink" class="share-link" type="url" aria-label="Enlace del polo seleccionado" readonly hidden><p id="shareStatus" role="status"></p><small>Confirmamos disponibilidad y entrega por WhatsApp.</small></div></div></dialog>
-<dialog id="selection"><button class="close" id="closeBag" aria-label="Cerrar">×</button><span class="eyebrow">TUS FAVORITOS</span><h2>Mi selección</h2><div id="bagItems"></div><div id="duoNotice" class="duo-notice" hidden><p id="duoMessage" role="status"></p><a id="chooseAnother" href="#coleccion">Elegir otro polo →</a></div><p class="price" id="bagTotal" aria-live="polite"></p><a id="bagWhatsapp" class="button whatsapp" target="_blank" rel="noopener">Consultar mi selección ↗</a><small>El pedido se confirma por WhatsApp.</small></dialog>
-<dialog id="zoom"><button class="close" id="closeZoom" aria-label="Cerrar ampliación">×</button><img id="zoomImage" alt="Detalle ampliado del polo"></dialog><p id="toast" role="status"></p><a class="floating-wa" href="https://wa.me/51972017611?text=%C2%A1Hola%21%20%C2%BFMe%20puede%20dar%20m%C3%A1s%20detalles%20sobre%20la%20promoci%C3%B3n%20de%20polos%202X%20S/35.00%3F" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3A13 13 0 0 0 4.8 22.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.8 10.8 0 1 1 16 26.8Zm6-8c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.2l-1 1.2c-.2.2-.4.2-.7.1-2.2-1.1-3.7-2.6-4.5-4-.2-.3 0-.5.1-.6l.6-.7.3-.5c.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.8.4-.8.8-1.2 1.7-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.4 3.7 5.8 5.1 2.7 1.2 3.4 1 4 .9 1-.2 1.8-.9 2-1.7s.2-1.4.1-1.5c-.1-.2-.3-.3-.6-.4Z"/></svg></a></body></html>
+<!doctype html>
+<html lang="es"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1" /><meta
+      name="description"
+      content="Polos de dama en tendencia y estampados personalizados. Descubre MODAC y cotiza tu diseño por WhatsApp." /><title
+      >MODAC · Polos de dama y estampados personalizados</title
+    ><link rel="stylesheet" href="styles.css?v=20261114-carrusel" /><script
+      src="app.js?v=20261114-tarjetas"
+      defer
+    ></script
+    ><script src="carousel.js?v=20261114-carrusel" defer></script
+    ><script
+      src="visor-polo.js?v=20261114-cherry-club"
+      defer
+    ></script></head
+  ><body>
+    <header
+      ><a class="brand" href="./" aria-label="Modac, inicio"
+        ><img src="assets/marca/logo.png" alt="MODAC · Elige tu estilo" /><span
+          >MODAC<small>ELIGE TU ESTILO</small></span
+        ></a
+      ><nav aria-label="Navegación principal"
+        ><a href="./"><span>Inicio</span></a
+        ><a href="#coleccion"><span>Catálogo de polos</span></a
+        ><a href="#personaliza"><span>Personalizados</span></a
+        ><a href="#contacto"><span>Contacto</span></a
+        ><button class="bag" id="openBag"
+          >Mi selección <span id="bagCount">0</span></button
+        ></nav
+      ></header
+    >
+    <div class="category-nav"><div id="categories" class="chips"></div></div
+    ><main
+      ><section class="hero"
+        ><div class="hero-copy"
+          ><p class="eyebrow">MODAC · POLOS PARA EXPRESARTE</p
+          ><h1>Elige tu <em>estilo.</em></h1
+          ><p
+            >Polos con diseños únicos, listos para ti.</p
+          ><div class="hero-actions"
+            ><a class="button" href="#coleccion">Ver polos de dama</a
+            ><a class="button secondary" href="#personaliza"
+              >Personaliza tu estampado</a
+            ></div
+          ></div
+        ><div
+          class="hero-images"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Polos de la colección"
+          ><div class="coverflow" id="coverflow"></div></div
+      ></section>
+      <aside class="modac-promotion" aria-label="Promoción MODAC"><h2>Dúos con estilo</h2><strong>2X S/35.00</strong><img src="assets/polo-cerezas-frente.webp" alt="" /></aside>
+      <section class="duo-ideas" id="duos" aria-labelledby="duosTitle" hidden>
+        <h2 id="duosTitle">Dúos con estilo</h2>
+        <div id="duoIdeas" class="duo-ideas-grid"></div>
+      </section>
+      <section class="collection" id="coleccion"
+        ><div class="section-heading"
+          ><div
+            ><p class="eyebrow">BÁSICOS Y TENDENCIA</p
+            ><h2>Polos de dama</h2></div
+          ><div class="toolbar"
+            ><label class="search"
+        >⌕
+        <input
+          id="search"
+          type="search"
+          placeholder="Buscar polos…"
+          aria-label="Buscar polos" /></label
+            ><label class="catalog-filter"
+              ><span>Talla</span
+              ><select id="size" aria-label="Filtrar polos por talla"
+                ><option value="">Todas</option></select
+              ></label
+            ><label class="catalog-filter"
+              ><span>Color</span
+              ><select id="color" aria-label="Filtrar polos por color"
+                ><option value="">Todos</option></select
+              ></label
+            ></div
+          ></div
+        ><div class="grid" id="products" aria-live="polite"></div
+      ></section>
+      <section
+        id="personaliza"
+        class="personaliza"
+        aria-labelledby="personalizaTitle"
+      >
+        <figure class="polo-visor">
+          <div
+            class="polo-carousel"
+            id="poloCarousel"
+            role="region"
+            aria-label="Vistas del polo personalizable"
+          >
+            <div
+              class="polo-vista"
+              data-polo-view
+              role="img"
+              tabindex="0"
+              aria-label="Vista frontal del polo MODAC"
+            ></div>
+            <button
+              class="polo-expand"
+              id="openPoloZoom"
+              type="button"
+              aria-label="Ampliar vistas del polo"
+              >Ampliar <span aria-hidden="true">↗</span></button
+            >
+          </div>
+          <figcaption
+            >Toca el polo para pausar o reanudar. Arrastra para cambiar de vista.</figcaption
+          >
+        </figure>
+        <div class="personaliza-texto">
+          <p class="eyebrow">HECHO PARA TI</p>
+          <h2 id="personalizaTitle">Personaliza tu estampado</h2>
+          <p
+            >Cuéntanos qué diseño imaginas. Completa los datos y comparte tu
+            referencia para cotizar tu polo personalizado.</p
+          >
+          <form id="quoteForm" class="quote-form" novalidate>
+            <div class="quote-row quote-contact">
+            <label
+              >Tu nombre<input
+                name="name"
+                autocomplete="name"
+                required
+                maxlength="80"
+                placeholder="Nombre"
+            /></label>
+            <label
+              >WhatsApp<input
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                required
+                inputmode="tel"
+                pattern="[+0-9 ()-]{7,20}"
+                placeholder="+51 999 999 999"
+            /></label>
+            </div>
+            <div class="quote-row">
+              <label
+                >Talla<select name="size" required
+                  ><option value="">Selecciona talla</option
+                  ><option>XS</option
+                  ><option>S</option
+                  ><option>M</option
+                  ><option>L</option
+                  ><option>XL</option></select
+                ></label
+              >
+              <label
+                >Cantidad<input
+                  name="quantity"
+                  type="number"
+                  min="1"
+                  max="100"
+                  step="1"
+                  required
+                  value="1"
+              /></label>
+            </div>
+            <label
+              >Cuéntanos tu idea<textarea
+                name="design"
+                rows="3"
+                maxlength="500"
+                required
+                placeholder="Describe el diseño, frase o logo que quieres estampar"
+              ></textarea>
+            </label>
+            <label
+              >Adjunta tu diseño<input
+                name="artwork"
+                type="file"
+                accept=".png,.jpg,.jpeg,.webp,.pdf,image/png,image/jpeg,image/webp,application/pdf"
+                required
+            /></label>
+            <small
+              >Al continuar se abrirá WhatsApp para enviar tu solicitud. Adjunta
+              allí el archivo seleccionado (máximo 10 MB).</small
+            >
+            <button class="button whatsapp" type="submit"
+              >Cotizar estampado por WhatsApp</button
+            >
+            <p
+              class="form-status"
+              id="quoteStatus"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+      <section id="como" class="how"
+        ><h2>Cómo pedir tu polo</h2
+        ><div
+          ><article
+            ><span class="step-icon" aria-hidden="true"
+              ><svg viewBox="0 0 24 24">
+                <circle cx="10.8" cy="10.8" r="6.8" />
+                <path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6" /></svg></span
+            ><b>01</b><h3>Encuentra tu diseño</h3
+            ><p>Explora la colección y abre tu favorito.</p></article
+          ><article
+            ><span class="step-icon" aria-hidden="true"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M4 5h16l-2 7H7L4 5ZM7 12l-1 4h12M8 20h.01M17 20h.01M4 5 3 3H1"
+                /></svg></span
+            ><b>02</b><h3>Elige tu variante</h3
+            ><p>Revisa el color y la talla de cada polo.</p></article
+          ><article
+            ><span class="step-icon" aria-hidden="true"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.5a8.5 8.5 0 1 1 16.3-4Z"
+                />
+                <path
+                  d="M8.2 8.5c.6 3.1 2.2 4.8 5.4 6.2l1.6-1.6 2.2 1"
+                /></svg></span
+            ><b>03</b><h3>Hablemos por WhatsApp</h3
+            ><p>Consulta disponibilidad y coordina tu pedido.</p></article
+          ></div
+        ></section
+      ></main
+    ><footer
+      ><div class="footer-brand"
+        ><img
+          class="footer-logo"
+          src="assets/marca/logo.png"
+          width="112"
+          height="112"
+          alt="MODAC · Elige tu estilo"
+          loading="lazy" /></div
+      ><div class="footer-links"
+        ><strong>Explora</strong><a href="#coleccion">Ver colección</a
+        ><a href="#personaliza">Personaliza tu polo</a
+        ><a href="#como">Cómo pedir</a></div
+      ><div class="footer-contact" id="contacto"
+        ><strong>Pedidos y consultas</strong
+        ><a
+          href="https://wa.me/51972017611?text=%C2%A1Hola%21%20%C2%BFMe%20puede%20dar%20m%C3%A1s%20detalles%20sobre%20la%20promoci%C3%B3n%20de%20polos%202X%20S/35.00%3F"
+          target="_blank"
+          rel="noopener"
+          >WhatsApp · 972 017 611</a
+        ><a href="#coleccion">Ver promociones y dúos</a></div
+      ></footer
+    >
+    <dialog id="poloZoom" class="polo-zoom"
+      ><button class="close" id="closePoloZoom" aria-label="Cerrar ampliación"
+        >×</button
+      ><div
+        class="polo-vista polo-vista-expanded"
+        data-polo-view
+        role="img"
+        tabindex="0"
+        aria-label="Vista ampliada del polo MODAC"
+      ></div
+      ><p>Toca el polo para pausar o reanudar. Arrastra para cambiar de vista.</p></dialog
+    >
+    <dialog id="detail"
+      ><button class="close" aria-label="Cerrar" id="closeDetail">×</button
+      ><div class="detail-layout"
+        ><button class="photo-zoom" id="zoomPhoto" aria-label="Ampliar foto"
+          ><img id="detailPhoto" alt="" /></button
+        ><div class="detail-info"
+          ><h2 id="detailName"></h2><p class="price" id="detailPrice"></p
+          ><p class="muted"
+            >Algodón jersey 30/1 · Cuello redondo · Manga corta</p
+          ><h3>Elige color y talla</h3><div class="variants" id="variants"></div
+          ><a
+            id="whatsapp"
+            class="button whatsapp"
+            target="_blank"
+            rel="noopener"
+            >Consultar por WhatsApp</a
+          ><button class="button secondary" id="addBag"
+            >Añadir a mi selección ♡</button
+          ><button class="text-button" id="share">Compartir este diseño</button
+          ><input
+            id="shareLink"
+            class="share-link"
+            type="url"
+            aria-label="Enlace del polo seleccionado"
+            readonly
+            hidden
+          /><p id="shareStatus" role="status"></p
+          ><small
+            >Confirmamos disponibilidad y entrega por WhatsApp.</small
+          ></div
+        ></div
+      ></dialog
+    >
+    <dialog id="selection"
+      ><button class="close" id="closeBag" aria-label="Cerrar">×</button
+      ><span class="eyebrow">TUS FAVORITOS</span><h2>Mi selección</h2
+      ><div id="bagItems"></div
+      ><div id="duoNotice" class="duo-notice" hidden
+        ><p id="duoMessage" role="status"></p
+        ><a id="chooseAnother" href="#coleccion">Elegir otro polo →</a></div
+      ><p class="price" id="bagTotal" aria-live="polite"></p
+      ><a
+        id="bagWhatsapp"
+        class="button whatsapp"
+        target="_blank"
+        rel="noopener"
+        >Consultar mi selección ↗</a
+      ><small>El pedido se confirma por WhatsApp.</small></dialog
+    >
+    <dialog id="zoom"
+      ><button class="close" id="closeZoom" aria-label="Cerrar ampliación"
+        >×</button
+      ><img id="zoomImage" alt="Detalle ampliado del polo" /></dialog
+    ><p id="toast" role="status"></p
+    ><a
+      class="floating-wa"
+      href="https://wa.me/51972017611?text=%C2%A1Hola%21%20%C2%BFMe%20puede%20dar%20m%C3%A1s%20detalles%20sobre%20la%20promoci%C3%B3n%20de%20polos%202X%20S/35.00%3F"
+      target="_blank"
+      rel="noopener"
+      aria-label="Consultar por WhatsApp"
+      ><svg viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16 3A13 13 0 0 0 4.8 22.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.8 10.8 0 1 1 16 26.8Zm6-8c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.2l-1 1.2c-.2.2-.4.2-.7.1-2.2-1.1-3.7-2.6-4.5-4-.2-.3 0-.5.1-.6l.6-.7.3-.5c.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.8.4-.8.8-1.2 1.7-1.2 2.7 0 1.6 1.2 3.2 1.4 3.4.2.2 2.4 3.7 5.8 5.1 2.7 1.2 3.4 1 4 .9 1-.2 1.8-.9 2-1.7s.2-1.4.1-1.5c-.1-.2-.3-.3-.6-.4Z"
+        /></svg></a></body
+></html>

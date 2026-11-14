@@ -1,10 +1,223 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Administrar · MODAC</title><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="../styles.css"><style>main{max-width:1000px;margin:40px auto;padding:0 20px}section{padding:25px;background:white;border:1px solid #e5ddd5;border-radius:10px;margin-bottom:20px}input,select{padding:12px;border:1px solid #ddd;border-radius:4px;width:100%;margin:7px 0 15px}label{display:block;font-size:13px}input[type=checkbox]{width:auto}h1{font-size:36px}h2{font-size:25px}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}.product{border-top:1px solid #ddd;padding:18px 0}.product button{margin:5px;padding:9px;border:1px solid #ddd;background:#faf7f2;border-radius:5px}.product img{width:55px;vertical-align:middle;margin-right:12px}.variant{padding:8px;background:#faf7f2;margin:8px 0}.status{line-height:1.7;font-size:13px}#editor{max-width:600px}.danger{color:#ab151b}header a{font-size:14px}@media(max-width:600px){.row{grid-template-columns:1fr}}</style><script src="admin.js" defer></script></head><body><header><strong>MODAC · Administración</strong><a href="../">Ver catálogo ↗</a></header><main><h1>Tu colección, a tu manera.</h1><p>Agrega fotos, organiza diseños y decide qué se muestra.</p><section id="login"><h2>Bienvenido a MODAC</h2><p>Inicia sesión con tu cuenta de GitHub para administrar tus diseños, colores y tallas.</p><button class="button" id="githubLogin">Iniciar sesión con GitHub ↗</button><p id="authNotice" class="muted"></p><p>También puedes <button id="localPreview" class="text-button">explorar el panel en modo demostración</button>.</p><small>La demostración permite probar el panel sin publicar cambios.</small></section><section id="workspace" hidden><div class="row"><h2>Diseños y variantes</h2><div><button class="button" id="newProduct">+ Nuevo diseño</button><button class="text-button" id="logout">Cerrar sesión</button></div></div><p class="muted">Ocultar conserva las fotos y los datos. Eliminar retira la variante del catálogo; la foto permanece en GitHub para evitar pérdidas.</p><label>Buscar por diseño, código, color o talla<input id="inventorySearch" type="search" placeholder="Ej. Cerezas o MODAC-013"></label><button id="openAd" class="button" type="button">Preparar anuncio</button><div id="adminProducts"></div><button id="publish" class="button">Guardar y publicar cambios</button><p id="dirty" class="status"></p></section><p id="status" class="status" role="status"></p></main><dialog id="editor"><button class="close" id="cancelEditor" aria-label="Cerrar">×</button><h2 id="editorTitle">Nuevo diseño</h2><form id="editForm"><label>Nombre del diseño<input id="name" required maxlength="100"></label><label>Categoría<select id="category"><option>Flores</option><option>Cerezas y lazos</option><option>Corazones</option><option>Otros diseños</option></select></label><label><input type="checkbox" id="showProduct" checked> Mostrar el diseño en el catálogo</label><div id="variantFields"><div class="row"><label>Color<input id="color" maxlength="60"></label><label>Talla<select id="variantSize"><option>S</option><option>M</option><option>L</option><option>XL</option><option>Consultar talla</option></select></label></div><label>Precio individual (S/)<input id="price" type="number" min="0.01" step="0.01" value="19.90"></label><label>Foto del polo<input id="file" type="file" accept="image/jpeg,image/png,image/webp"></label><img id="preview" style="max-width:160px;display:none" alt="Vista previa"><label><input type="checkbox" id="showVariant" checked> Mostrar esta variante</label></div><button class="button" type="submit">Guardar en mi borrador</button><p class="muted">Para publicar el borrador, usa “Guardar y publicar cambios”.</p></form></dialog><dialog id="confirm"><h2>¿Eliminar esta variante?</h2><p>Dejará de formar parte del catálogo. Puedes ocultarla si deseas recuperarla después.</p><button id="confirmDelete" class="button">Eliminar variante</button><button id="cancelDelete" class="text-button">Cancelar</button></dialog><dialog id="adEditor" aria-labelledby="adTitle">
-<h2 id="adTitle">Preparar anuncio</h2>
-<label>Red social<select id="adNetwork"><option>Facebook</option><option>TikTok</option></select></label>
-<label>Polos visibles<select id="adVariants" multiple size="5" aria-describedby="adHelp"></select></label>
-<p id="adHelp">Selecciona hasta dos variantes para destacar. En computadora, usa Ctrl o Cmd para elegir dos.</p>
-<label>Texto para publicar<textarea id="adText" rows="9" style="width:100%;font:inherit"></textarea></label>
-<button id="copyAd" class="button" type="button">Copiar texto</button>
-<button id="closeAd" class="text-button" type="button">Cerrar</button>
-<p id="adStatus" role="status"></p>
-</dialog></body></html>
+<!doctype html>
+<html lang="es"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1" /><title
+      >Administrar · MODAC</title
+    ><meta name="robots" content="noindex,nofollow" /><link
+      rel="stylesheet"
+      href="../styles.css" /><style>
+      main {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 25px;
+        background: white;
+        border: 1px solid #e5ddd5;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      input,
+      select {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        margin: 7px 0 15px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+      }
+      input[type="checkbox"] {
+        width: auto;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      h2 {
+        font-size: 25px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .product {
+        border-top: 1px solid #ddd;
+        padding: 18px 0;
+      }
+      .product button {
+        margin: 5px;
+        padding: 9px;
+        border: 1px solid #ddd;
+        background: #faf7f2;
+        border-radius: 5px;
+      }
+      .product img {
+        width: 55px;
+        vertical-align: middle;
+        margin-right: 12px;
+      }
+      .variant {
+        padding: 8px;
+        background: #faf7f2;
+        margin: 8px 0;
+      }
+      .status {
+        line-height: 1.7;
+        font-size: 13px;
+      }
+      #editor {
+        max-width: 600px;
+      }
+      .danger {
+        color: #ab151b;
+      }
+      header a {
+        font-size: 14px;
+      }
+      @media (max-width: 600px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }</style
+    ><script src="admin.js" defer></script></head
+  ><body
+    ><header
+      ><strong>MODAC · Administración</strong
+      ><a href="../">Ver catálogo ↗</a></header
+    ><main
+      ><h1>Tu colección, a tu manera.</h1
+      ><p>Agrega fotos, organiza diseños y decide qué se muestra.</p
+      ><section id="login"
+        ><h2>Bienvenido a MODAC</h2
+        ><p
+          >Inicia sesión con tu cuenta de GitHub para administrar tus diseños,
+          colores y tallas.</p
+        ><button class="button" id="githubLogin"
+          >Iniciar sesión con GitHub ↗</button
+        ><p id="authNotice" class="muted"></p
+        ><p
+          >También puedes
+          <button id="localPreview" class="text-button"
+            >explorar el panel en modo demostración</button
+          >.</p
+        ><small
+          >La demostración permite probar el panel sin publicar cambios.</small
+        ></section
+      ><section id="workspace" hidden
+        ><div class="row"
+          ><h2>Diseños y variantes</h2
+          ><div
+            ><button class="button" id="newProduct">+ Nuevo diseño</button
+            ><button class="text-button" id="logout">Cerrar sesión</button></div
+          ></div
+        ><p class="muted"
+          >Ocultar conserva las fotos y los datos. Eliminar retira la variante
+          del catálogo; la foto permanece en GitHub para evitar pérdidas.</p
+        ><label
+          >Buscar por diseño, código, color o talla<input
+            id="inventorySearch"
+            type="search"
+            placeholder="Ej. Cerezas o MODAC-013" /></label
+        ><button id="openAd" class="button" type="button"
+          >Preparar anuncio</button
+        ><div id="adminProducts"></div
+        ><button id="publish" class="button">Guardar y publicar cambios</button
+        ><p id="dirty" class="status"></p></section
+      ><p id="status" class="status" role="status"></p></main
+    ><dialog id="editor"
+      ><button class="close" id="cancelEditor" aria-label="Cerrar">×</button
+      ><h2 id="editorTitle">Nuevo diseño</h2
+      ><form id="editForm"
+        ><label
+          >Nombre del diseño<input id="name" required maxlength="100" /></label
+        ><label
+          >Categoría<select id="category"
+            ><option>Flores</option
+            ><option>Cerezas y lazos</option
+            ><option>Corazones</option
+            ><option>Otros diseños</option></select
+          ></label
+        ><label
+          ><input type="checkbox" id="showProduct" checked /> Mostrar el diseño
+          en el catálogo</label
+        ><div id="variantFields"
+          ><div class="row"
+            ><label>Color<input id="color" maxlength="60" /></label
+            ><label
+              >Talla<select id="variantSize"
+                ><option>S</option
+                ><option>M</option
+                ><option>L</option
+                ><option>XL</option
+                ><option>Consultar talla</option></select
+              ></label
+            ></div
+          ><label
+            >Precio individual (S/)<input
+              id="price"
+              type="number"
+              min="0.01"
+              step="0.01"
+              value="19.90" /></label
+          ><label
+            >Foto del polo<input
+              id="file"
+              type="file"
+              accept="image/jpeg,image/png,image/webp" /></label
+          ><img
+            id="preview"
+            style="max-width: 160px; display: none"
+            alt="Vista previa"
+          /><label
+            ><input type="checkbox" id="showVariant" checked /> Mostrar esta
+            variante</label
+          ></div
+        ><button class="button" type="submit">Guardar en mi borrador</button
+        ><p class="muted"
+          >Para publicar el borrador, usa “Guardar y publicar cambios”.</p
+        ></form
+      ></dialog
+    ><dialog id="confirm"
+      ><h2>¿Eliminar esta variante?</h2
+      ><p
+        >Dejará de formar parte del catálogo. Puedes ocultarla si deseas
+        recuperarla después.</p
+      ><button id="confirmDelete" class="button">Eliminar variante</button
+      ><button id="cancelDelete" class="text-button">Cancelar</button></dialog
+    ><dialog id="adEditor" aria-labelledby="adTitle">
+      <h2 id="adTitle">Preparar anuncio</h2>
+      <label
+        >Red social<select id="adNetwork"
+          ><option>Facebook</option
+          ><option>TikTok</option></select
+        ></label
+      >
+      <label
+        >Polos visibles<select
+          id="adVariants"
+          multiple
+          size="5"
+          aria-describedby="adHelp"
+        ></select
+      ></label>
+      <p id="adHelp"
+        >Selecciona hasta dos variantes para destacar. En computadora, usa Ctrl
+        o Cmd para elegir dos.</p
+      >
+      <label
+        >Texto para publicar<textarea
+          id="adText"
+          rows="9"
+          style="width: 100%; font: inherit"
+        ></textarea>
+      </label>
+      <button id="copyAd" class="button" type="button">Copiar texto</button>
+      <button id="closeAd" class="text-button" type="button">Cerrar</button>
+      <p id="adStatus" role="status"></p> </dialog></body
+></html>

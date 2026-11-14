@@ -6,39 +6,69 @@ let slideTimer;
 let lastDirection = 1;
 
 function initCarousel() {
-  slides = data.productos.filter(visible).flatMap(p => p.variantes
-    .filter(v => v.visible && !(p.id === 'diseno-13' && v.color === 'Blanco'))
-    .map(v => ({ p, v })));
+  slides = data.productos
+    .filter(visible)
+    .flatMap((p) =>
+      p.variantes
+        .filter(
+          (v) => v.visible && !(p.id === "diseno-13" && v.color === "Blanco"),
+        )
+        .map((v) => ({ p, v })),
+    );
   if (!slides.length) {
-    document.querySelector('.hero-images').hidden = true;
+    document.querySelector(".hero-images").hidden = true;
     return;
   }
 
   slides = alternatePolos(slides);
   slideIndex = 0;
+  const track = $("#coverflow");
+  let touchStart;
+  track.addEventListener("touchstart", (event) => {
+    touchStart = event.touches.length === 1 ? event.touches[0] : undefined;
+  }, { passive: true });
+  track.addEventListener("touchcancel", () => { touchStart = undefined; });
+  track.addEventListener("touchend", (event) => {
+    if (!touchStart || event.touches.length) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStart.clientX;
+    const dy = touch.clientY - touchStart.clientY;
+    touchStart = undefined;
+    if (Math.abs(dx) > 35 && Math.abs(dx) > Math.abs(dy)) {
+      if (event.cancelable) event.preventDefault();
+      moveSlide(dx < 0 ? 1 : -1);
+    }
+  }, { passive: false });
   showSlide();
-  document.addEventListener('visibilitychange', syncCarousel);
+  document.addEventListener("visibilitychange", syncCarousel);
   syncCarousel();
 }
 
 function alternatePolos(items) {
   const remaining = [...items];
-  const firstIndex = Math.max(0, remaining.findIndex(({ v }) => v.id === 'MODAC-023'));
+  const firstIndex = Math.max(
+    0,
+    remaining.findIndex(({ v }) => v.id === "MODAC-023"),
+  );
   const ordered = remaining.splice(firstIndex, 1);
-  const color = ({ v }) => v.color.toLowerCase().replace(/azul marino.*/, 'azul marino');
+  const color = ({ v }) =>
+    v.color.toLowerCase().replace(/azul marino.*/, "azul marino");
   const different = (a, b) => a.p.id !== b.p.id && color(a) !== color(b);
   while (remaining.length) {
     const previous = ordered.at(-1);
     const recent = ordered.slice(-2);
     const preferences = [
-      item => recent.every(shown => different(item, shown)),
-      item => different(item, previous),
-      item => item.p.id !== previous.p.id
+      (item) => recent.every((shown) => different(item, shown)),
+      (item) => different(item, previous),
+      (item) => item.p.id !== previous.p.id,
     ];
     let index = -1;
     for (const preference of preferences) {
-      index = remaining.findIndex(item => preference(item) &&
-        (remaining.length > 1 || different(item, ordered[0])));
+      index = remaining.findIndex(
+        (item) =>
+          preference(item) &&
+          (remaining.length > 1 || different(item, ordered[0])),
+      );
       if (index >= 0) break;
     }
     ordered.push(remaining.splice(Math.max(0, index), 1)[0]);
@@ -51,7 +81,7 @@ function carouselIndex(index) {
 }
 
 function showSlide() {
-  const track = $('#coverflow');
+  const track = $("#coverflow");
   const visibleCards = new Set();
   const visibleCount = Math.min(3, slides.length);
   for (let offset = 0; offset < visibleCount; offset++) {
@@ -61,14 +91,17 @@ function showSlide() {
     let card = carouselCards.get(index);
 
     if (!card) {
-      card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'coverflow-card';
-      const img = document.createElement('img');
+      card = document.createElement("button");
+      card.type = "button";
+      card.className = "coverflow-card";
+      const img = document.createElement("img");
       img.src = photo(item.v.foto);
-      img.alt = '';
+      img.alt = "";
       card.append(img);
-      card.setAttribute('aria-label', `${item.p.nombre} · ${item.v.color} · ${item.v.talla}`);
+      card.setAttribute(
+        "aria-label",
+        `${item.p.nombre} · ${item.v.color} · ${item.v.talla}`,
+      );
       card.onclick = () => {
         openProduct(item.p.id);
         selectVariant(item.v.id);
@@ -90,13 +123,11 @@ function showSlide() {
     placeCarouselCard(card, Number(card.dataset.offset) - lastDirection, true);
     setTimeout(() => card.remove(), 550);
   }
-
-
 }
 
 function placeCarouselCard(card, offset, hidden) {
   card.dataset.offset = offset;
-  card.style.setProperty('--position', offset);
+  card.style.setProperty("--position", offset);
   card.style.opacity = hidden ? 0 : 1;
 }
 
@@ -109,5 +140,7 @@ function moveSlide(step) {
 
 function syncCarousel() {
   clearInterval(slideTimer);
-  if (!document.hidden) slideTimer = setInterval(() => moveSlide(1), carouselInterval);
+  if (!document.hidden && slides.length > 1 &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    slideTimer = setInterval(() => moveSlide(1), carouselInterval);
 }
