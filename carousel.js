@@ -22,6 +22,10 @@ function initCarousel() {
 
   slides = alternatePolos(slides);
   slideIndex = 0;
+  document.querySelectorAll("[data-carousel-step]").forEach((button) => {
+    button.hidden = slides.length < 2;
+    button.onclick = () => moveSlide(Number(button.dataset.carouselStep));
+  });
   const track = $("#coverflow");
   let touchStart;
   track.addEventListener("touchstart", (event) => {

@@ -6754,3 +6754,153 @@ main .hero-images .coverflow-card img {
     transition: none;
   }
 }
+
+main > .hero {
+  background: linear-gradient(120deg, #a9002a, #d40838 72%, #ed3759);
+}
+
+main .hero-copy :is(h1, h1 em, p) {
+  color: #fff;
+}
+
+main .hero-copy h1::after {
+  background: #ffd28c;
+}
+
+main .hero-actions .button:not(.secondary) {
+  background: #fff;
+  border-color: #fff;
+  color: #a9002a;
+}
+
+main .hero-actions .button:not(.secondary):hover {
+  background: #fff0e2;
+  color: #a9002a;
+}
+
+main .hero-actions .button.secondary {
+  border-color: #ffffffaa;
+  color: #fff;
+}
+
+main .hero-images {
+  background: radial-gradient(ellipse at center, #ffb4bf75, transparent 72%);
+}
+
+.modac-promotion {
+  background: #ffe8dc;
+  border: 1px solid #f3c6b0;
+}
+
+#coleccion .section-heading h2,
+#personalizaTitle {
+  color: #8e1132;
+}
+
+#coleccion .card:focus-within {
+  outline: 2px solid #aa2245;
+  outline-offset: 3px;
+}
+
+main > .how {
+  background: #ffece5;
+}
+
+main > .hero {
+  align-items: center;
+  background: radial-gradient(ellipse at 76% 53%, #fb5d7b 0%, transparent 48%),
+    linear-gradient(115deg, #690024, #a9002a 48%, #d40838);
+}
+
+main .hero-images {
+  position: relative;
+  background: none;
+}
+
+main .hero-images :is(.coverflow, .coverflow-card, .coverflow-card img) {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+main .hero-images .coverflow-card img {
+  filter: drop-shadow(0 12px 10px #39021765);
+}
+
+.hero-carousel-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  translate: 0 -50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #780026;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hero-carousel-arrow[data-carousel-step="-1"] { inset-inline-start: 0; }
+.hero-carousel-arrow[data-carousel-step="1"] { inset-inline-end: 0; }
+.hero-carousel-arrow:focus-visible { outline: 3px solid #ffd28c; }
+
+#coleccion .card-photo {
+  background: #fff;
+}
+
+@media (max-width: 760px) {
+  .hero-carousel-arrow {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+main > .hero {
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: clamp(16px, 3vw, 48px);
+  padding: clamp(20px, 3vw, 42px) 7%;
+}
+
+main .hero-copy h1 {
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.04;
+}
+
+main .hero-copy > p {
+  max-width: 26ch;
+}
+
+main .hero-images .coverflow {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.modac-promotion h2::after {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 7px;
+  background: #b87515;
+  content: "";
+}
+
+.modac-promotion-polos {
+  display: flex;
+  align-items: center;
+}
+
+.modac-promotion-polos img + img {
+  margin-inline-start: -20px;
+}
+
+@media (max-width: 760px) {
+  main > .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
